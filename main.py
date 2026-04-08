@@ -5,7 +5,7 @@ Ejecutar: python main.py
 # TODO: Agregar modo vs computadora
 """
 from setup_archivos import GestorJuego
-from dados_reglas import MotorDados
+from reglas_dados import MotorDados
 from logica_turno import DirectorJuego
 
 
