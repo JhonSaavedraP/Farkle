@@ -45,4 +45,3 @@ class DirectorJuego:
         # Si no, el índice se queda igual porque el "siguiente" ahora ocupa esa posición
         if self.idx >= len(self.gestor.jugadores):
             self.idx = 0
-            
