@@ -5,7 +5,7 @@ class DirectorJuego:
     """Dirige el flujo: turnos, rondas y victoria."""
 
     def __init__(self, gestor, motor):
-        # EXPLICAR: Aquí recibimos los objetos de las otras ramas (Inyección de Dependencias).
+        # Aquí recibimos los objetos de las otras ramas (Inyección de Dependencias).
         # El Director no hace los puntos solo, usa al 'gestor' y al 'motor'.
         self.gestor = gestor   
         self.motor = motor     
@@ -14,12 +14,12 @@ class DirectorJuego:
 
     def jugador_actual(self):
         """Retorna nombre del jugador en turno."""
-        # EXPLICAR: Convertimos las llaves del diccionario en lista para usar el índice actual.
+        #Convertimos las llaves del diccionario en lista para usar el índice actual.
         return list(self.gestor.jugadores.keys())[self.idx]
 
     def siguiente(self):
         """Pasa al siguiente jugador. Si pasaron todos, nueva ronda."""
-        # EXPLICAR: Usamos el operador módulo (%) para que el turno sea circular.
+        # Usamos el operador módulo (%) para que el turno sea circular.
         # Cuando el índice vuelve a 0, significa que todos ya jugaron y sube la ronda.
         total = len(self.gestor.jugadores)
         self.idx = (self.idx + 1) % total
@@ -28,20 +28,19 @@ class DirectorJuego:
 
     def sumar_puntos(self, puntos):
         """Suma puntos al jugador actual y retorna su total."""
-        # EXPLICAR: Aquí el Director modifica directamente los datos que vive en el Gestor.
+        #Convertimos las llaves del diccionario en lista para usar el índice actual.
         nombre = self.jugador_actual()
         self.gestor.jugadores[nombre] += puntos
         return self.gestor.jugadores[nombre]
 
     def hay_ganador(self):
         """True si el jugador actual llegó a 10,000."""
-        # EXPLICAR: Usamos una constante (META) definida en GestorJuego para que sea fácil
-        # de cambiar en el futuro (ej. jugar a 5,000 puntos).
+        #Convertimos las llaves del diccionario en lista para usar el índice actual.
         return self.gestor.jugadores[self.jugador_actual()] >= GestorJuego.META
     
     def eliminar_jugador_actual(self):
         """Elimina al jugador actual de la partida y ajusta el índice."""
-        # EXPLICAR: Este método es clave para la opción de 'Abandonar'.
+        #Convertimos las llaves del diccionario en lista para usar el índice actual.
         nombre = self.jugador_actual()
         
         # 1. Limpieza de datos: Lo borramos del diccionario global.
